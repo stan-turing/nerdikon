@@ -13,9 +13,54 @@
   border-radius: 20px;
   background-color: #0D1117;
   color: #fff;
+  outline: none;
 }
 
-.search-bar:focus {
+.search-bar:hover {
+  outline: none;
+  border-color: #535bf2;
+}
+
+.category-filter {
+  padding: 15px 20px;
+  font-size: 2rem;
+  border: 3px solid #2C3038;
+  border-radius: 20px;
+  background-color: #0D1117;
+  color: #fff;
+  margin-left: 2rem;
+  width: 15rem;
+  outline: none;
+  appearance: none;
+  background-image: url('../src/assets/icons/dropdown-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+  background-size: 15px;
+}
+
+.category-filter:hover {
+  outline: none;
+  border-color: #535bf2;
+}
+
+.tag-filter {
+  padding: 15px 20px;
+  font-size: 2rem;
+  border: 3px solid #2C3038;
+  border-radius: 20px;
+  background-color: #0D1117;
+  color: #fff;
+  margin-left: 2rem;
+  width: 10rem;
+  outline: none;
+  appearance: none;
+  background-image: url('../src/assets/icons/dropdown-arrow.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+  background-size: 15px;
+}
+
+.tag-filter:hover {
   outline: none;
   border-color: #535bf2;
 }

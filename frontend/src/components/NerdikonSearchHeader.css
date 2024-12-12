@@ -1,0 +1,18 @@
+.nerdikon-search-header h3{
+    font-size: 10rem;
+    margin: 2rem;
+    text-align: center; /* Zentriert den Text */
+    background-image: url('../assets/images/Ultra HD.jpeg'); /* Stelle sicher, dass der Pfad korrekt ist */
+    background-size: 80%; /* Deckt den Bereich komplett ab */
+    background-repeat: repeat;
+    background-position: center; /* Zentriert das Bild */
+    padding: 2rem 0; /* Abstand innen hinzufügen */
+    background-clip: text; /* Clip den Hintergrund auf den Text */
+      -webkit-background-clip: text; /* Für Webkit-Browser (z. B. Chrome, Safari) */
+      color: transparent; /* Textfarbe unsichtbar machen */
+  }
+  
+  .nerdikon-search-header p {
+    font-size: 1.6rem;
+  }
+  

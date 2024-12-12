@@ -12,11 +12,6 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  min-height: 100vh;
-}
-
-main {
-  flex: 1;
 }
 
 a {
@@ -24,3 +19,13 @@ a {
   color: inherit;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1; /* Hauptinhalte füllen den verfügbaren Platz */
+  padding: 2rem; /* Optional: Abstand um die Inhalte herum */
+}

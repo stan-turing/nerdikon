@@ -4,6 +4,8 @@ import SearchBar from './components/SearchBar';
 import NerdikonCard from './components/NerdikonCard';
 import Footer from './components/Footer';
 import './App.css';
+import SearchCardBox from './components/SearchCardBox';
+import NerdikonSearchHeader from './components/NerdikonSearchHeader';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,6 +22,8 @@ const App = () => {
     <div className="app">
       <Header />
       <main className="main-content">
+        <SearchCardBox>
+        <NerdikonSearchHeader />
         <SearchBar onSearch={setSearchTerm} />
         <div className="cards-container">
           {filteredTerms.map((term, index) => (
@@ -30,6 +34,7 @@ const App = () => {
             />
           ))}
         </div>
+        </SearchCardBox>
       </main>
       <Footer />
     </div>
