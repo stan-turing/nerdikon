@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - '8055:8055' # Frontend und API erreichbar unter localhost:8055
+    environment:
+      KEY: supersecretkey # API-Key (kannst du später anpassen)
+      ADMIN_EMAIL: admin@example.com # Admin-Account
+      ADMIN_PASSWORD: adminpassword
+      DATABASE_CLIENT: sqlite3 # Nutze SQLite für schnellen Start
+      DATABASE_FILENAME: /data/database.db
+    volumes:
+      - ./data:/data # Datenbank und Assets werden lokal gespeichert

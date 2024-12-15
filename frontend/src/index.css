@@ -22,10 +22,21 @@ a {
 .app {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  min-height: 100vh;
 }
 
 .main-content {
   flex: 1; /* Hauptinhalte füllen den verfügbaren Platz */
   padding: 2rem; /* Optional: Abstand um die Inhalte herum */
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+  background-color: #161B22;
+  color: #aaa;
+  font-size: 1.6rem;
+  gap: 2rem;
 }

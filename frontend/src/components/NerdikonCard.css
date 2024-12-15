@@ -1,34 +1,188 @@
+.box-container {
+  margin-bottom: 20rem;
+}
+
 .cards-container {
   display: flex;
-  flex-wrap: wrap; /* Erlaubt Zeilenumbruch bei kleinen Bildschirmen */
+  flex-wrap: wrap; /* Zeilenumbruch bei kleinen Bildschirmen */
+  justify-content: center;
   gap: 1rem; /* Abstand zwischen Kacheln */
-  justify-content: center; /* Zentriert die Kacheln horizontal */
+  margin: 1rem -1rem -1rem -1rem; /* Ränder für die Kacheln */
+  max-height: 910px;
+  overflow-y: auto;
   padding: 1rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  margin-bottom: 1rem;
+}
+
+.cards-container::-webkit-scrollbar {
+  position: absolute;
+  width: 10px; /* Höhe der Scrollbar */
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background-color: #eee; /* Farbe des Scrollbalkens */
+  border-radius: 30px; /* Abgerundete Ecken */
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+  background-color: #E43EE9; /* Hover-Effekt für die Scrollbar */
+}
+
+.cards-container::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparenter Hintergrund der Scrollbar */
 }
 
 .card {
-  background-color: #161B22;
-  border-radius: 20px;
+  display: flex; /* Flexbox für vertikale Anordnung */
+  flex-direction: column; /* Elemente in einer Spalte anordnen */
+  position: relative; /* Referenzpunkt für Child-Elemente */
+  background-color: #21252B;
+  border-radius: 25px;
   padding: 2rem;
+  white-space: wrap;
   text-align: left;
   transition: transform 0.3s;
-  margin: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0px 10px 15px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  width: 23rem;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
- 
+
+.card-thumb {
+  width: 100%; /* Breite füllt die Card */
+  height: 70px; /* Feste Höhe */
+  object-fit: contain; /* Bild bleibt proportional und wird zugeschnitten */
+  border-radius: 15px; /* Runde Ecken oben */
+  margin-bottom: 1rem;
+  margin-top: -0.8rem;
+}
+
 .card-title {
-  font-size: 2.5rem;
-  margin: 0 0 2rem;
+  font-size: 2.3rem;
+  margin: 0.5rem 0 2rem 0; /* Abstand unter dem Titel */
 }
-  
-.card-category {
-  display: inline-block;
-  background-color: #292f99;
-  border: 3px solid #535bf2;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 1.4rem;
+
+.card-tags {
+  display: flex; /* Flexbox für horizontale Anordnung der Tags */
+  gap: 1rem; /* Abstand zwischen den Tags */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-top: 0.5rem; /* Optionaler Abstand nach oben */
+  margin-top: auto; 
+}
+
+.card-tags::-webkit-scrollbar {
+  position: absolute;
+  height: 6px; /* Höhe der Scrollbar */
+}
+
+.card-tags::-webkit-scrollbar-thumb {
+  background-color: #eee; /* Farbe des Scrollbalkens */
+  border-radius: 30px; /* Abgerundete Ecken */
+}
+
+.card-tags::-webkit-scrollbar-thumb:hover {
+  background-color: #E43EE9; /* Hover-Effekt für die Scrollbar */
+}
+
+.card-tags::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparenter Hintergrund der Scrollbar */
+}
+
+.tag {
+  display: inline-flex; /* Zentrierung */
+  align-items: center; /* Vertikale Zentrierung */
+  justify-content: center; /* Horizontale Zentrierung */
+  padding: 3px 10px; /* Innenabstand */
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  border: 4px solid transparent; /* Dünner Rahmen */
+  border-radius: 18px; /* Runde Ecken */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Schatten */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+  height: 23px;
+  margin-bottom: 1rem;
+}
+
+.tag:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.tag.hacking {
+  background-color: #840d60; /* Hacking-Farbe */
+  border-color: #ed0eaa;
+}
+
+.tag.netzwerk {
+  background-color: #0b4272; /* Netzwerk-Farbe */
+  border-color: #0c77f2;
+}
+
+.tag.it-sicherheit {
+  background-color: #630c72; /* IT-Sicherheit-Farbe */
+  border-color: #9810d2;
+}
+
+.tag.hardware {
+  background-color: #0b7214;
+  border-color: #22ec1b;
+}
+
+.tag.software {
+  background-color: #0b723e;
+  border-color: #65f0dd;
+}
+
+.tag.programmierung {
+  background-color: #0b721c;
+  border-color: #56ca56;
+}
+
+.tag.cloud {
+  background-color: #2f597a;
+  border-color: #7cd6ec;
+}
+
+.tag.künstliche-intelligenz {
+  background-color: #737466;
+  border-color: #e6e9bd;
+}
+
+.tag.datenschutz {
+  background-color: #0b4072;
+  border-color: #006eff;
+}
+
+.tag.gaming {
+  background-color: #720b50;
+  border-color: #ff0095;
+}
+
+.tag.geschichte-der-it {
+  background-color: #1a0b72;
+  border-color: #1100ff;
+}
+
+.tag.tools {
+  background-color: #0b7242;
+  border-color: #00ff80;
+}
+
+.tag.trends {
+  background-color: #0b4c72;
+  border-color: #00ccff;
+}
+
+.tag.regulierung {
+  background-color: #522b09;
+  border-color: #BC6C25;
 }

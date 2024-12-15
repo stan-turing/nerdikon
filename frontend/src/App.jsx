@@ -1,43 +1,45 @@
-import React, { useState } from 'react';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import NerdikonCard from './components/NerdikonCard';
-import Footer from './components/Footer';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+// page & layout imports
 import './App.css';
-import SearchCardBox from './components/SearchCardBox';
-import NerdikonSearchHeader from './components/NerdikonSearchHeader';
+import Homepage from './pages/Homepage';
+import ArticleDetails from './pages/ArticleDetails';
+import Category from './pages/Category';
+
+import SiteHeader from "./components/SiteHeader";
+
+import { fetchEntries } from "./api";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const terms = [
-    { title: 'Was ist ein DNS?', category: 'Netzwerktechnik' },
-    { title: 'Was ist ein DDOS Angriff?', category: 'Netzwerksicherheit' },
-  ];
+  const [entries, setEntries] = useState([]); // State für API-Daten
 
-  const filteredTerms = terms.filter((term) =>
-    term.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    // API-Daten laden
+    const loadEntries = async () => {
+      try {
+        const data = await fetchEntries();
+        console.log(data);
+        setEntries(data.data); // Strapi gibt Daten in einem `data`-Array zurück
+      } catch (error) {
+        console.error("Fehler beim Laden der Einträge:", error);
+      }
+    };
+
+    loadEntries();
+  }, []);
 
   return (
-    <div className="app">
-      <Header />
-      <main className="main-content">
-        <SearchCardBox>
-        <NerdikonSearchHeader />
-        <SearchBar onSearch={setSearchTerm} />
-        <div className="cards-container">
-          {filteredTerms.map((term, index) => (
-            <NerdikonCard 
-              key={index} 
-              title={term.title} 
-              category={term.category} 
-            />
-          ))}
-        </div>
-        </SearchCardBox>
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <SiteHeader />
+        <Routes>
+          <Route exact path="/" element={<Homepage />} />
+          <Route path="/articles/:id" element={<ArticleDetails />} />
+          <Route path="/category/:id" element={<Category />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

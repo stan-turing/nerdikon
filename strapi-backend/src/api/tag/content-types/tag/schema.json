@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "Tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "entries": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::entry.entry",
+      "mappedBy": "tags"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "itsicherheit#E63946",
+        "netzwerk#05447e",
+        "hardware#2A9D8F",
+        "software#F4A261",
+        "programmierung#264653",
+        "cloud#A8DADC",
+        "ki#6A0572",
+        "datenschutz#E9C46A",
+        "hacking#F94144",
+        "gaming#4D908E",
+        "geschichte#F77F00",
+        "tools#3D5A80",
+        "trends#2C6E49",
+        "regulierung#BC6C25"
+      ],
+      "required": true
+    }
+  }
+}

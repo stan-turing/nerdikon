@@ -1,9 +1,10 @@
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #161B22;
-    color: #aaa;
-    font-size: 1.6rem;    
-    position: sticky;
-    bottom: 0;
+.impress {
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease; 
+}
+
+.impress:hover {
+    color: #0077ff;
+    text-decoration: underline; 
+    cursor: pointer;
 }
